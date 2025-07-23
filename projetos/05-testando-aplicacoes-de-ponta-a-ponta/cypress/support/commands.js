@@ -5,7 +5,7 @@ Cypress.Commands.add('goToApp', () => {
 Cypress.Commands.add('login', (role = 'USER') => {
   const admin = role.toUpperCase() === 'ADMIN';
   const user = admin ? 'admin' : 'Leola_Kautzer74';
-  const password = admin ? 'admin' : '5mYFQeV4KQLx9m4';
+  const password = admin ? Cypress.env('ADMIN_PASSWORD') : Cypress.env('USER_PASSWORD');
 
   cy.get('input[placeholder="usuario"]').type(user);
   cy.get('input[placeholder="sua senha super secreta"]').type(password);
