@@ -12,6 +12,9 @@ export default function start (port) {
   // Instancia a aplicação
   const app = express();
 
+  // Disable X-Powered-By header
+  app.disable('x-powered-by');
+
   // Aplica middlewares principais
   app.use(middlewares);
 
